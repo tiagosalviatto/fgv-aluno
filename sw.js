@@ -1,7 +1,7 @@
 /* FGV Aluno — service worker
    Rede primeiro (sempre a versão mais nova quando há internet),
    cache como reserva (o app abre mesmo em modo avião). */
-const CACHE = 'fgv-aluno-v1';
+const CACHE = 'fgv-aluno-v2';
 const QR_LIB = 'https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js';
 const ARQUIVOS = [
   './',
@@ -41,7 +41,8 @@ self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
   e.respondWith(
-    fetch(req)
+    // 'no-cache' revalida com o servidor: alterações publicadas chegam na hora
+    fetch(req, { cache: 'no-cache' })
       .then(res => {
         if (res && (res.ok || res.type === 'opaque')) {
           const copia = res.clone();
