@@ -328,7 +328,6 @@
                     </div>
                     <div class="cart-base">
                       <span class="selo" aria-hidden="true"></span>
-                      <span class="fantasma"><img src="${A.foto}" alt=""></span>
                     </div>
                   </div>
                   <div class="faixa-viva"><span>${faixa}</span></div>
