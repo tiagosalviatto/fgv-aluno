@@ -1,7 +1,7 @@
 /* FGV Aluno — service worker
    Rede primeiro (sempre a versão mais nova quando há internet),
    cache como reserva (o app abre mesmo em modo avião). */
-const CACHE = 'fgv-aluno-v2';
+const CACHE = 'fgv-aluno-v3';
 const QR_LIB = 'https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js';
 const ARQUIVOS = [
   './',
