@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>FGV Aluno</title>
+  <meta name="description" content="Aplicativo do aluno FGV: carteirinha digital, notas e horários.">
+  <meta name="theme-color" content="#003A79">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="FGV Aluno">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preload" href="assets/img/foto.jpg" as="image">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <section id="tela-login" class="tela login">
+    <div class="login-fundo" data-guilloche="login"></div>
+    <div class="login-topo">
+      <img src="assets/img/logo-branco.png" alt="FGV" class="login-logo">
+      <p>Portal do Aluno</p>
+    </div>
+    <form class="login-painel" id="form-login" autocomplete="off" novalidate>
+      <h1>Bem-vindo de volta</h1>
+      <p class="sub">Entre com sua matrícula e senha</p>
+      <div class="campo-in">
+        <label for="in-matricula">Matrícula</label>
+        <span data-ico="user"></span>
+        <input id="in-matricula" inputmode="numeric" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="campo-in">
+        <label for="in-senha">Senha</label>
+        <span data-ico="cadeado"></span>
+        <input id="in-senha" type="password" value="********" autocomplete="off">
+        <button type="button" class="olho rip" id="btn-olho" aria-label="Mostrar senha" data-ico="olho"></button>
+      </div>
+      <div class="login-opcoes">
+        <label class="switch"><input type="checkbox" checked><span></span>Lembrar meus dados</label>
+        <button type="button" class="link" id="btn-esqueci">Esqueci a senha</button>
+      </div>
+      <button type="submit" class="btn-pri rip" id="btn-entrar">Entrar</button>
+      <p class="login-rodape">Fundação Getulio Vargas · versão 2.4.1</p>
+    </form>
+  </section>
+
+  <!-- CARREGAMENTO -->
+  <section id="tela-carregando" class="tela carregando-tela" hidden>
+    <img src="assets/img/logo-branco.png" alt="" class="carr-logo">
+    <div class="barra-ind"><span></span></div>
+    <p>Sincronizando seus dados…</p>
+  </section>
+
+  <!-- VALIDAÇÃO (aberta pelo QR Code) -->
+  <section id="tela-validar" class="tela validar" hidden></section>
+
+  <!-- APP -->
+  <div id="shell" class="shell" hidden>
+    <main class="views">
+      <section class="view" id="v-inicio" data-view="inicio"></section>
+      <section class="view" id="v-notas" data-view="notas"></section>
+      <section class="view" id="v-carteirinha" data-view="carteirinha"></section>
+      <section class="view" id="v-horarios" data-view="horarios"></section>
+    </main>
+    <nav class="nav" aria-label="Navegação principal">
+      <img class="nav-logo" src="assets/img/logo-cor.png" alt="FGV">
+      <button class="nav-item rip" data-ir="inicio"><span class="nav-ico rip-alvo" data-ico="home"></span><span>Início</span></button>
+      <button class="nav-item rip" data-ir="notas"><span class="nav-ico rip-alvo" data-ico="notas"></span><span>Notas</span></button>
+      <button class="nav-item rip" data-ir="carteirinha"><span class="nav-ico rip-alvo" data-ico="cartao"></span><span>Carteirinha</span></button>
+      <button class="nav-item rip" data-ir="horarios"><span class="nav-ico rip-alvo" data-ico="calendario"></span><span>Horários</span></button>
+    </nav>
+  </div>
+
+  <!-- PAINEL INFERIOR (notificações, perfil, notícias) -->
+  <div id="sheet" class="sheet" aria-hidden="true">
+    <div class="sheet-fundo" data-fechar></div>
+    <div class="sheet-painel" role="dialog" aria-modal="true">
+      <div class="sheet-alca"><span></span></div>
+      <div class="sheet-conteudo"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+  <script src="js/dados.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

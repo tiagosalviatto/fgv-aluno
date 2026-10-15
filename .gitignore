@@ -1,0 +1,6 @@
+# configuração local do Claude Code
+.claude/
+
+# imagens originais enviadas (o app usa as versões tratadas em assets/)
+image-*.png
+image-*.webp
